@@ -16,8 +16,4 @@ function GridTraveler {
     if ($r -eq 0 -or $c -eq 0) {Write-Output 0}
     if ($r -eq 1 -and $c -eq 1) {Write-Output 1}
     # recursion logic
-    $RowMinus = GridTraveler -r ($r - 1) -c $c
-    $ColumnMinus = GridTraveler -r $r -c ($c - 1)
-    $Output = $RowMinus + $ColumnMinus
-    Write-Output $Output
 }
