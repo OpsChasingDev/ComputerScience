@@ -13,8 +13,8 @@ function GridTraveler {
         [int]$c
     )
     # base cases
-    if ($r -eq 0 -or $c -eq 0) {Write-Output 0}
-    elseif ($r -eq 1 -and $c -eq 1) {Write-Output 1}
+    if ($r -eq 0 -or $c -eq 0) {Write-Output 0; break}
+    elseif ($r -eq 1 -and $c -eq 1) {Write-Output 1; break}
     # recursion logic
     else {
         return (GridTraveler ($r-1) $c) + (GridTraveler $r ($c-1))
