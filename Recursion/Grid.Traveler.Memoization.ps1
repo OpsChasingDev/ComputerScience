@@ -14,7 +14,9 @@ function GridTraveler {
     )
     # base cases
     if ($r -eq 0 -or $c -eq 0) {Write-Output 0}
-    if ($r -eq 1 -and $c -eq 1) {Write-Output 1}
+    elseif ($r -eq 1 -and $c -eq 1) {Write-Output 1}
     # recursion logic
-    return (GridTraveler ($r-1) $c) + (GridTraveler $r ($c-1))
+    else {
+        return (GridTraveler ($r-1) $c) + (GridTraveler $r ($c-1))
+    }
 }
