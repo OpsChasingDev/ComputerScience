@@ -12,4 +12,7 @@ function GridTraveler {
         [Parameter(Mandatory)]
         [int]$c
     )
+    if ($r -eq 0 -or $c -eq 0) {Write-Output 0}
+    if ($r -eq 1 -and $c -eq 1) {Write-Output 1}
+    Write-Output {(GridTraveler -r ($r - 1) -c $c) + (GridTraveler -r $r -c ($c - 1))}
 }
