@@ -5,6 +5,9 @@ You may only move down or right.
 In how many ways can you travel to the goal on a grid with dimensions r * c?
 #>
 
+
+
+<#
 function GridTraveler {
     param (
         [Parameter(Mandatory, Position=0)]    
@@ -20,3 +23,4 @@ function GridTraveler {
         return (GridTraveler ($r-1) $c) + (GridTraveler $r ($c-1))
     }
 }
+#>
