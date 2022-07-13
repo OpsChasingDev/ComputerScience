@@ -5,6 +5,7 @@ You may only move down or right.
 In how many ways can you travel to the goal on a grid with dimensions r * c?
 #>
 
+# example with NO memoization
 function GridTraveler {
     param (
         [Parameter(Position=1)]    
@@ -16,21 +17,3 @@ function GridTraveler {
     if ($r -eq 1 -and $c -eq 1) {return 1}
     return (GridTraveler $r ($c - 1)) + (GridTraveler ($r - 1) $c)
 }
-
-<#
-function GridTraveler {
-    param (
-        [Parameter(Mandatory, Position=0)]    
-        [int]$r,
-        [Parameter(Mandatory, Position=1)]
-        [int]$c
-    )
-    # base cases
-    if ($r -eq 0 -or $c -eq 0) {Write-Output 0; break}
-    elseif ($r -eq 1 -and $c -eq 1) {Write-Output 1; break}
-    # recursion logic
-    else {
-        return (GridTraveler ($r-1) $c) + (GridTraveler $r ($c-1))
-    }
-}
-#>
