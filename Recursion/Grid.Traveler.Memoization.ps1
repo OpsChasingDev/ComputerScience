@@ -29,15 +29,16 @@ function GridTravelerMemo {
         [Parameter(Position=3)]
         $memo = @{}
     )
-    # define key
-    $key = "$r,$c"
-
-    # if $memo contains a value at index [$key], return that value
-    $memo | ForEach-Object {if ($_.Name -eq $key){return $_.Value}}
-
+    
     # if statements for "base cases"
     if ($r -eq 0 -or $c -eq 0) {return 0}
     if ($r -eq 1 -and $c -eq 1) {return 1}
+    
+    # define key
+    $key = "$r,$c"
+    
+    # if $memo contains a value at index [$key], return that value
+    if ($memo.ContainsKey($key)) {return $memo[$key]}
 
     # store the value of $memo[$key]
     $memo[$key] = (GridTravelerMemo $r ($c - 1) $memo) + (GridTravelerMemo ($r - 1) $c $memo)
@@ -45,3 +46,5 @@ function GridTravelerMemo {
     # return $memo[key]
     return $memo[$key]
 }
+
+GridTravelerMemo 2 3
