@@ -26,7 +26,7 @@ function GridTravelerMemo {
         [Parameter(Position=2)]
         $c,
         [Parameter(Position=3)]
-        $memo
+        $memo = {}
     )
     # define key
     # if statement to return the key if it already exists
