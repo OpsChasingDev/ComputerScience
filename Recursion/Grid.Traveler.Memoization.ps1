@@ -45,3 +45,12 @@ function GridTravelerMemo {
     # return $memo[key]
     return $memo[$key]
 }
+
+Measure-Command {GridTraveler 5 5} | Select-Object @{l='TestName';e={'5,5'}}, TotalSeconds
+Measure-Command {GridTravelerMemo 5 5} | Select-Object @{l='TestName';e={'5,5 memo'}}, TotalSeconds
+Measure-Command {GridTraveler 8 8} | Select-Object @{l='TestName';e={'8,8'}}, TotalSeconds
+Measure-Command {GridTravelerMemo 8 8} | Select-Object @{l='TestName';e={'8,8 memo'}}, TotalSeconds
+Measure-Command {GridTraveler 10 10} | Select-Object @{l='TestName';e={'10,10'}}, TotalSeconds
+Measure-Command {GridTravelerMemo 10 10} | Select-Object @{l='TestName';e={'10,10 memo'}}, TotalSeconds
+Measure-Command {GridTravelerMemo 25 25} | Select-Object @{l='TestName';e={'25,25 memo'}}, TotalSeconds
+Measure-Command {GridTravelerMemo 50 50} | Select-Object @{l='TestName';e={'50,50 memo'}}, TotalSeconds
