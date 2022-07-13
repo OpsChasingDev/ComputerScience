@@ -31,12 +31,12 @@ function GridTravelerMemo {
     # define key
     $key = "$r,$c"
     # if $memo contains a value at index [$key], return that value
-    
+    $memo | ForEach-Object {if ($_.Name -eq $key){return $_.Value}}
     # if statements for "base cases"
     if ($r -eq 0 -or $c -eq 0) {return 0}
     if ($r -eq 1 -and $c -eq 1) {return 1}
 
     # store the value of the un-saved key into the memo - $memo[key] = {}
     # return $memo[key]
-    return (GridTraveler $r ($c - 1)) + (GridTraveler ($r - 1) $c)
+    return (GridTravelerMemo $r ($c - 1)) + (GridTravelerMemo ($r - 1) $c)
 }
