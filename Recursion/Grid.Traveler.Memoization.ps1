@@ -19,6 +19,7 @@ function GridTraveler {
 }
 
 # example, but memooiiiiized - work in progress
+# current problem based on debugging is each new call doesn't get saved to the memo array
 function GridTravelerMemo {
     param (
         [Parameter(Position=1)]    
