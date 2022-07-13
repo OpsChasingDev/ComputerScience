@@ -31,6 +31,8 @@ function GridTravelerMemo {
     # define key
     $key = "$r,$c"
     # if statement to return the key if it already exists
+
+    # if statements for "base cases"
     if ($r -eq 0 -or $c -eq 0) {return 0}
     if ($r -eq 1 -and $c -eq 1) {return 1}
 
