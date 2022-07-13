@@ -18,8 +18,7 @@ function GridTraveler {
     return (GridTraveler $r ($c - 1)) + (GridTraveler ($r - 1) $c)
 }
 
-# example, but memooiiiiized - work in progress
-# current problem based on debugging is each new call doesn't get saved to the memo array
+# example, but memooiiiiized
 function GridTravelerMemo {
     param (
         [Parameter(Position=1)]    
@@ -46,5 +45,3 @@ function GridTravelerMemo {
     # return $memo[key]
     return $memo[$key]
 }
-
-GridTravelerMemo 2 3
