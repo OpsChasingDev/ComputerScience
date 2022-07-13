@@ -17,3 +17,23 @@ function GridTraveler {
     if ($r -eq 1 -and $c -eq 1) {return 1}
     return (GridTraveler $r ($c - 1)) + (GridTraveler ($r - 1) $c)
 }
+
+# example, but memooiiiiized - work in progress
+function GridTravelerMemo {
+    param (
+        [Parameter(Position=1)]    
+        $r,
+        [Parameter(Position=2)]
+        $c,
+        [Parameter(Position=3)]
+        $memo
+    )
+    # define key
+    # if statement to return the key if it already exists
+    if ($r -eq 0 -or $c -eq 0) {return 0}
+    if ($r -eq 1 -and $c -eq 1) {return 1}
+
+    # store the value of the un-saved key into the memo - $memo[key] = {}
+    # return $memo[key]
+    return (GridTraveler $r ($c - 1)) + (GridTraveler ($r - 1) $c)
+}
