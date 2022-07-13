@@ -39,8 +39,8 @@ function GridTravelerMemo {
     if ($r -eq 1 -and $c -eq 1) {return 1}
 
     # store the value of $memo[$key]
-    $memo[$key] = (GridTravelerMemo $r ($c - 1)) + (GridTravelerMemo ($r - 1) $c)
-    
+    $memo[$key] = (GridTravelerMemo $r ($c - 1) $memo) + (GridTravelerMemo ($r - 1) $c $memo)
+
     # return $memo[key]
     return $memo[$key]
 }
