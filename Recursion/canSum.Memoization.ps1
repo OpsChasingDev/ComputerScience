@@ -14,3 +14,13 @@ canSum(10, [3,4]) -> true
 canSum(10, [4,7]) -> false
 canSum(51, [2,2,2,2,2,2,2,2,2,2,2]) -> false
 #>
+
+function canSum {
+    param (
+        [Parameter(Position = 1)]    
+        $TargetSum,
+        [Parameter(Position = 2)]
+        $Collection
+    )
+    # 
+}
