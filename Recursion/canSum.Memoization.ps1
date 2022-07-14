@@ -18,9 +18,9 @@ canSum(51, [2,2,2,2,2,2,2,2,2,2,2]) -> false
 function canSum {
     param (
         [Parameter(Position = 1)]    
-        $TargetSum,
+        [int]$TargetSum,
         [Parameter(Position = 2)]
-        $Collection
+        [int[]]$Collection
     )
-    # 
+    if ()
 }
