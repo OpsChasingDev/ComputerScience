@@ -8,7 +8,8 @@
 
 <#
 Examples:
-canSum(10, [2,3,4]) -> true
+canSum(7, [3,4]) -> true
+canSum(7, [2,4]) -> false
 canSum(10, [3,4]) -> true
 canSum(10, [4,7]) -> false
 #>
