@@ -27,7 +27,9 @@ function canSum {
         if ($TargetSum -lt $c) {return $false}
         if ($TargetSum -eq $c) {return $true}
         if ($TargetSum -gt $c) {
-            return (canSum ($TargetSum - $c) $Collection)
+            if ((canSum ($TargetSum - $c) $Collection) -eq $true) {
+                return $true
+            }
         }
     }
 }
