@@ -22,9 +22,12 @@ function canSum {
         [Parameter(Position = 2)]
         [int[]]$Collection
     )
-    
+
     foreach ($c in $Collection) {
         if ($TargetSum -lt $c) {return $false}
         if ($TargetSum -eq $c) {return $true}
+        if ($TargetSum -gt $c) {
+            return (canSum ($TargetSum - $c) $Collection)
+        }
     }
 }
