@@ -24,7 +24,6 @@ function canSum {
     )
 
     foreach ($c in $Collection) {
-        if ($TargetSum -lt $c) {return $false}
         if ($TargetSum -eq $c) {return $true}
         if ($TargetSum -gt $c) {
             if ((canSum ($TargetSum - $c) $Collection) -eq $true) {
@@ -32,4 +31,5 @@ function canSum {
             }
         }
     }
+    return $false
 }
