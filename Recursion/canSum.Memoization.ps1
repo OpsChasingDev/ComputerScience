@@ -22,6 +22,9 @@ function canSum {
         [Parameter(Position = 2)]
         [int[]]$Collection
     )
-    # if the targetsum is less than any of the elements in the array, return false
-    # if the targetsum is equal to any of the elements in the array, return true
+    
+    foreach ($c in $Collection) {
+        if ($TargetSum -lt $c) {return $false}
+        if ($TargetSum -eq $c) {return $true}
+    }
 }
