@@ -22,5 +22,6 @@ function canSum {
         [Parameter(Position = 2)]
         [int[]]$Collection
     )
-    if ()
+    # if the targetsum is less than any of the elements in the array, return false
+    # if the targetsum is equal to any of the elements in the array, return true
 }
