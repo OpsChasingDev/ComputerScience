@@ -43,11 +43,15 @@ function canSumMemo {
         [Parameter(Position = 3)]
         $memo = @{}
     )
+    # define $key
 
     foreach ($c in $Collection) {
+        # if key exists in memo, return memo[key]
         if ($TargetSum -eq $c) {return $true}
         if ($TargetSum -gt $c) {
             if ((canSum ($TargetSum - $c) $Collection) -eq $true) {
+                # store this value at memo[key]
+                # return memo[key]
                 return $true
             }
         }
