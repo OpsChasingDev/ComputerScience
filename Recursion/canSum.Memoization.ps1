@@ -33,3 +33,23 @@ function canSum {
     }
     return $false
 }
+
+function canSumMemo {
+    param (
+        [Parameter(Position = 1)]    
+        [int]$TargetSum,
+        [Parameter(Position = 2)]
+        [int[]]$Collection,
+        $memo = @{}
+    )
+
+    foreach ($c in $Collection) {
+        if ($TargetSum -eq $c) {return $true}
+        if ($TargetSum -gt $c) {
+            if ((canSum ($TargetSum - $c) $Collection) -eq $true) {
+                return $true
+            }
+        }
+    }
+    return $false
+}
