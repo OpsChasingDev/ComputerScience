@@ -40,6 +40,7 @@ function canSumMemo {
         [int]$TargetSum,
         [Parameter(Position = 2)]
         [int[]]$Collection,
+        [Parameter(Position = 3)]
         $memo = @{}
     )
 
