@@ -49,7 +49,9 @@ function canSumMemo {
     if ($memo.ContainsKey($key)) {return $true}
 
     foreach ($c in $Collection) {
-        if ($TargetSum -eq $c) {return $true}
+        if ($TargetSum -eq $c) {
+            $memo[$key] = $true
+            return $true}
         if ($TargetSum -gt $c) {
             if ((canSumMemo ($TargetSum - $c) $Collection $memo) -eq $true) {
                 # store this value at memo[key]
