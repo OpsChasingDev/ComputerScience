@@ -52,8 +52,9 @@ function canSumMemo {
         if ($TargetSum -gt $c) {
             if ((canSum ($TargetSum - $c) $Collection) -eq $true) {
                 # store this value at memo[key]
+                $memo[$key] = $true
                 # return memo[key]
-                return $true
+                return $memo[$key]
             }
         }
     }
