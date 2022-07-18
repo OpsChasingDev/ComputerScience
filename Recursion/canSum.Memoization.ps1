@@ -44,6 +44,7 @@ function canSumMemo {
         $memo = @{}
     )
     # define $key
+    $key = $TargetSum.ToString()
 
     foreach ($c in $Collection) {
         # if key exists in memo, return memo[key]
