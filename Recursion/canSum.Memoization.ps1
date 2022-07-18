@@ -55,7 +55,7 @@ function canSumMemo {
                 # store this value at memo[key]
                 $memo[$key] = $true
                 # return memo[key]
-                return $memo[$key]
+                return $true
             }
         }
     }
