@@ -24,7 +24,7 @@ function canSum {
     )
 
     foreach ($c in $Collection) {
-        if ($TargetSum -eq $c) {return $true}
+        if ($TargetSum -eq $c) { return $true }
         if ($TargetSum -gt $c) {
             if ((canSum ($TargetSum - $c) $Collection) -eq $true) {
                 return $true
@@ -44,12 +44,13 @@ function canSumMemo {
         $memo = @{}
     )
     $key = $TargetSum
-    if ($memo.ContainsKey($key)) { return {$memo[$key]} }
+    if ($memo.ContainsKey($key)) { return { $memo[$key] } }
 
     foreach ($c in $Collection) {
         if ($TargetSum -eq $c) {
             $memo[$key] = $true
-            return $memo[$key]}
+            return $memo[$key]
+        }
         if ($TargetSum -gt $c) {
             if ((canSumMemo ($TargetSum - $c) $Collection $memo) -eq $true) {
                 $memo[$key] = $true
