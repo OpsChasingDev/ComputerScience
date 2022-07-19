@@ -31,4 +31,5 @@ function howSum {
             $Results += howSum ($TargetSum - $c) $Collection $Results
         }
     }
+    return $Results
 }
