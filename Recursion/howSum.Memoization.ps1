@@ -6,6 +6,14 @@
 - if no options exist, return null
 #>
 
+<#
+Examples:
+
+howSum 7 3,4 => [3,4]
+howSum 7 2,3 => [2,2,3]
+howSum 7 5,4 => null
+#>
+
 function howSum {
     param (
         [Parameter(Position=1)]
