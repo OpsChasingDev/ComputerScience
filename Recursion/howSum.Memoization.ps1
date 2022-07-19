@@ -28,12 +28,9 @@ function howSum {
         # if the TargetSum is less than the member of the collection, return null
         if ($TargetSum -lt $c) { return $null }
         # if the TargetSum is equal to the member of the collection, add collection member into an array of results
-        if ($TargetSum -eq $c) {
-            $Results += $c
-            return $null
-        }
+        if ($TargetSum -eq $c) { return $c }
         if ($TargetSum -gt $c) {
-            howSum ($TargetSum - $c) $Collection $Results
+            $Results += howSum ($TargetSum - $c) $Collection $Results
         }
 
     }
