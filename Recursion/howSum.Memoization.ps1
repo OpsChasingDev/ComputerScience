@@ -24,6 +24,9 @@ function howSum {
             $Results += $c
             return $null
         }
+        if ($TargetSum -gt $c) {
+            howSum ($TargetSum - $c) $Collection $Results
+        }
 
     }
     # if the TargetSum is greater than the member of the collection, work the logic
