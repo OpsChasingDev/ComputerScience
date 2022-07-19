@@ -25,15 +25,10 @@ function howSum {
     )
     # base cases (foreach on each member of collection)
     foreach ($c in $Collection) {
-        # if the TargetSum is less than the member of the collection, return null
         if ($TargetSum -lt $c) { return $null }
-        # if the TargetSum is equal to the member of the collection, add collection member into an array of results
         if ($TargetSum -eq $c) { return $c }
         if ($TargetSum -gt $c) {
             $Results += howSum ($TargetSum - $c) $Collection $Results
         }
-
     }
-    # if the TargetSum is greater than the member of the collection, work the logic
-        # subtract the collection member from the current TargetSum and use that value as the new input for TargetSum
 }
