@@ -11,7 +11,9 @@ function howSum {
         [Parameter(Position=1)]
         [int]$TargetSum,
         [Parameter(Position=2)]
-        [int[]]$Collection
+        [int[]]$Collection,
+        [Parameter(Position=3)]
+        $Results = @()
     )
     # base cases (foreach on each member of collection)
     # if the TargetSum is less than the member of the collection, return null
