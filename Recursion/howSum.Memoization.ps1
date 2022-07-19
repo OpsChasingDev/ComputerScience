@@ -5,3 +5,12 @@
 - if multiple options exist, only one needs to be returned
 - if no options exist, return null
 #>
+
+function howSum {
+    param (
+        [Parameter(Position=1)]
+        [int]$TargetSum,
+        [Parameter(Position=2)]
+        [int[]]$Collection
+    )
+}
