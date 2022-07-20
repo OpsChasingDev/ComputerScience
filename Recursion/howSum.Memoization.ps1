@@ -15,7 +15,6 @@ howSum 7 5,4 => null
 #>
 
 
-# current problem is any value being checked in $Collection that meets the first condition and returns $null does not continue through the foreach loop to the next value
 function howSum {
     param (
         [Parameter(Position = 1)]
@@ -24,11 +23,9 @@ function howSum {
         [int[]]$Collection
     )
 
-    # new base cases
     if ($TargetSum -lt 0) { return $null }
     if ($TargetSum -eq 0) { return @{} }
 
-    # new recursive logic
     foreach ($c in $Collection) {
         $Result = howSum ($TargetSum - $c) $Collection
         if ($Result) {
