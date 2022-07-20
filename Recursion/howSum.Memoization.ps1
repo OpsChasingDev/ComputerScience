@@ -45,6 +45,7 @@ function howSumMemo {
         [int]$Memo = @{}
     )
 
+    if ($Memo.ContainsKey($TargetSum)) {return $Memo[$TargetSum]}
     if ($TargetSum -lt 0) { return $null }
     if ($TargetSum -eq 0) { return @{} }
 
