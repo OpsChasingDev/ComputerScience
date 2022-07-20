@@ -35,3 +35,23 @@ function howSum {
     }
     return $null
 }
+function howSumMemo {
+    param (
+        [Parameter(Position = 1)]
+        [int]$TargetSum,
+        [Parameter(Position = 2)]
+        [int[]]$Collection
+    )
+
+    if ($TargetSum -lt 0) { return $null }
+    if ($TargetSum -eq 0) { return @{} }
+
+    foreach ($c in $Collection) {
+        $Result = howSumMemo ($TargetSum - $c) $Collection
+        if ($Result) {
+            $Result.Add("$TargetSum","$c")
+            return $Result
+        }
+    }
+    return $null
+}
