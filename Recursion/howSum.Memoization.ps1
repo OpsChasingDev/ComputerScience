@@ -14,6 +14,8 @@ howSum 7 2,3 => [2,2,3]
 howSum 7 5,4 => null
 #>
 
+
+# current problem is any value being checked in $Collection that meets the first condition and returns $null does not continue through the foreach loop to the next value
 function howSum {
     param (
         [Parameter(Position=1)]
