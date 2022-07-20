@@ -49,7 +49,7 @@ function howSumMemo {
     if ($TargetSum -eq 0) { return @{} }
 
     foreach ($c in $Collection) {
-        $Result = howSumMemo ($TargetSum - $c) $Collection
+        $Result = howSumMemo ($TargetSum - $c) $Collection $Memo
         if ($Result) {
             $Result.Add("$TargetSum","$c")
             return $Result
