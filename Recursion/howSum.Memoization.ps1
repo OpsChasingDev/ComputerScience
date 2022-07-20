@@ -18,20 +18,13 @@ howSum 7 5,4 => null
 # current problem is any value being checked in $Collection that meets the first condition and returns $null does not continue through the foreach loop to the next value
 function howSum {
     param (
-        [Parameter(Position=1)]
+        [Parameter(Position = 1)]
         [int]$TargetSum,
-        [Parameter(Position=2)]
-        [int[]]$Collection,
-        [Parameter(Position=3)]
-        $Results = @()
+        [Parameter(Position = 2)]
+        [int[]]$Collection
     )
-    # base cases (foreach on each member of collection)
-    foreach ($c in $Collection) {
-        if ($TargetSum -lt $c) { return $null }
-        if ($TargetSum -eq $c) { return $c }
-        if ($TargetSum -gt $c) {
-            $Results += howSum ($TargetSum - $c) $Collection $Results
-        }
-    }
-    return $Results
+
+    # new base cases
+    if ($TargetSum -lt 0) { return $null }
+    if ($TargetSum -eq 0) { return @{} }
 }
