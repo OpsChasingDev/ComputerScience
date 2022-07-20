@@ -32,8 +32,8 @@ function howSum {
     foreach ($c in $Collection) {
         $Result = howSum ($TargetSum - $c) $Collection
         if ($Result) {
-            $NewResult = $Result += $c
-            return $NewResult
+            $Result.Add("$TargetSum","$c")
+            return $Result
         }
     }
     return $null
