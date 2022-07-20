@@ -29,7 +29,7 @@ function howSum {
     foreach ($c in $Collection) {
         $Result = howSum ($TargetSum - $c) $Collection
         if ($Result) {
-            $Result.Add("$TargetSum","$c")
+            $Result.Add("$TargetSum", "$c")
             return $Result
         }
     }
@@ -42,17 +42,17 @@ function howSumMemo {
         [Parameter(Position = 2)]
         [int[]]$Collection,
         [Parameter(Position = 3)]
-        [int]$Memo = @{}
+        $Memo = @{}
     )
 
-    if ($Memo.ContainsKey($TargetSum)) {return $Memo[$TargetSum]}
+    if ($Memo.ContainsKey("$TargetSum")) { return $Memo["$TargetSum"] }
     if ($TargetSum -lt 0) { return $null }
     if ($TargetSum -eq 0) { return @{} }
 
     foreach ($c in $Collection) {
-        $Result = howSumMemo ($TargetSum - $c) $Collection $Memo
+        $Result = howSumMemo $TargetSum $Collection $Memo
         if ($Result) {
-            $Result.Add("$TargetSum","$c")
+            $Result.Add("$TargetSum", "$c")
             return $Result
         }
     }
