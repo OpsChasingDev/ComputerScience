@@ -27,4 +27,14 @@ function howSum {
     # new base cases
     if ($TargetSum -lt 0) { return $null }
     if ($TargetSum -eq 0) { return @{} }
+
+    # new recursive logic
+    foreach ($c in $Collection) {
+        $Result = howSum ($TargetSum - $c) $Collection
+        if ($Result) {
+            $NewResult = $Result += $c
+            return $NewResult
+        }
+    }
+    return $null
 }
