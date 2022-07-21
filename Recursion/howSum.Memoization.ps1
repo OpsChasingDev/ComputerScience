@@ -50,7 +50,8 @@ function howSumMemo {
     if ($TargetSum -eq 0) { return @{} }
 
     foreach ($c in $Collection) {
-        $Result = howSumMemo $TargetSum $Collection $Memo
+        $Remainder = $TargetSum - $c
+        $Result = howSumMemo $Remainder $Collection $Memo
         if ($Result) {
             $Result.Add("$TargetSum", "$c")
             return $Result
