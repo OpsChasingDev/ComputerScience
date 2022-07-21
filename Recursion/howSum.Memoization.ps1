@@ -57,5 +57,6 @@ function howSumMemo {
         # if no results are returned, this means all downstream options returned $null
         # memoize a situation where the downstream calls were all returning $null
     }
-    return $null
+    $Memo["$TargetSum"] = $null
+    return $Memo["$TargetSum"]
 }
