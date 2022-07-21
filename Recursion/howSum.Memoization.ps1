@@ -45,7 +45,6 @@ function howSumMemo {
         $Memo = @{}
     )
 
-    if ($Memo.ContainsKey("$TargetSum")) { return $Memo["$TargetSum"] }
     if ($TargetSum -lt 0) { return $null }
     if ($TargetSum -eq 0) { return @{} }
 
@@ -55,6 +54,8 @@ function howSumMemo {
             $Result.Add("$TargetSum", "$c")
             return $Result
         }
+        # if no results are returned, this means all downstream options returned $null
+        # memoize a situation where the downstream calls were all returning $null
     }
     return $null
 }
