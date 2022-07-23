@@ -7,6 +7,10 @@
     - if no result is possible, return null
 #>
 
+# must create logic upon each recursive call to see if an array of comparing length already exists
+# if an existing array with a greater length exists, the new array set replaces the existing array set
+# if an existing array with a lesser length exists, the new array set is dropped
+# if an existing array with an equal length exists, the new array set is dropped
 function bestSum {
     param (
         [Parameter(Position=1)]
