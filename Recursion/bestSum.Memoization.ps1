@@ -5,3 +5,12 @@
     - elements in the array can be used more than once
     - a tie between sizes of array results can return either option
 #>
+
+function bestSum {
+    param (
+        [Parameter(Position=1)]
+        [int]$TargetSum,
+        [Parameter(Position=2)]
+        [int[]]$Collection
+        )
+}
