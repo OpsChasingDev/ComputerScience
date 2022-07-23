@@ -20,7 +20,11 @@ function bestSum {
     if ($TargetSum -gt 0) {
         foreach ($c in $Collection) {
             $Difference = $TargetSum - $c
-            bestSum $Difference $Collection
+            $Result = bestSum $Difference $Collection
+            if ($Result) {
+                $Result.Add("$c","$c")
+                return $Result
+            }
         }
     }
 }
