@@ -4,6 +4,7 @@
     - output will be the smallest set of elements from the input collection to reach the target sum
     - elements in the array can be used more than once
     - a tie between sizes of array results can return either option
+    - if no result is possible, return null
 #>
 
 function bestSum {
@@ -13,4 +14,6 @@ function bestSum {
         [Parameter(Position=2)]
         [int[]]$Collection
         )
+
+    
 }
