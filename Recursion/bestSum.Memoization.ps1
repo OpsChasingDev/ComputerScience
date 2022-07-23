@@ -18,6 +18,9 @@ function bestSum {
     if ($TargetSum -lt 0) { return $null }
     if ($TargetSum -eq 0) { return @{} }
     if ($TargetSum -gt 0) {
-        
+        foreach ($c in $Collection) {
+            $Difference = $TargetSum - $c
+            bestSum $Difference $Collection
+        }
     }
 }
