@@ -15,5 +15,9 @@ function bestSum {
         [int[]]$Collection
         )
 
-    
+    if ($TargetSum -lt 0) { return $null }
+    if ($TargetSum -eq 0) { return @{} }
+    if ($TargetSum -gt 0) {
+        
+    }
 }
