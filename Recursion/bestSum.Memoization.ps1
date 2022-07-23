@@ -22,7 +22,7 @@ function bestSum {
             $Difference = $TargetSum - $c
             $Result = bestSum $Difference $Collection
             if ($Result) {
-                $Result.Add("$c","$c")
+                $Result.Add("$TargetSum","$c")
                 return $Result
             }
         }
