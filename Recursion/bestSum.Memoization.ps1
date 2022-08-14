@@ -42,7 +42,7 @@ function bestSum {
                 # building array for targetsum
                 $Result.Add("$TargetSum", "$c")
                 # if combo is shorter than current shortest, update it
-                # must also handle initial $ShortestCombo.lenth being 0
+                # must also handle initial $ShortestCombo.count being 0
                 if ($null -eq $ShortestCombo -or 
                     $Result.count -lt $ShortestCombo.count) {
                     $ShortestCombo += $Result
