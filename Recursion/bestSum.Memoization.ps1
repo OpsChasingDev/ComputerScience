@@ -45,7 +45,7 @@ function bestSum {
                 # if combo is shorter than current shortest, update it
                 # must also handle initial $ShortestCombo.lenth being 0
                 if ($null -eq $ShortestCombo -or 
-                    $Result.length -lt $ShortestCombo.length) {
+                    $Result.count -lt $ShortestCombo.count) {
                     $ShortestCombo += $Result
                 }
             }
