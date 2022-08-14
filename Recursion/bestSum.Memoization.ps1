@@ -11,24 +11,36 @@
 # if an existing array with a greater length exists, the new array set replaces the existing array set
 # if an existing array with a lesser length exists, the new array set is dropped
 # if an existing array with an equal length exists, the new array set is dropped
+
+# make sure returned combo is being passed to the next call in the stack
 function bestSum {
     param (
-        [Parameter(Position=1)]
+        [Parameter(Position = 1)]
         [int]$TargetSum,
-        [Parameter(Position=2)]
+        [Parameter(Position = 2)]
         [int[]]$Collection
-        )
+    )
 
+    $ShortestCombo = $null
+        
     if ($TargetSum -lt 0) { return $null }
     if ($TargetSum -eq 0) { return @{} }
     if ($TargetSum -gt 0) {
         foreach ($c in $Collection) {
             $Difference = $TargetSum - $c
             $Result = bestSum $Difference $Collection
+            # possible to generate remainder
             if ($Result) {
-                $Result.Add("$TargetSum","$c")
-                return $Result
+                # building array for targetsum
+                $Result.Add("$TargetSum", "$c")
+                # if combo is shorter than current shortest, update it
+                # must also handle initial $ShortestCombo.lenth being 0
+                if ($null -eq $ShortestCombo -or 
+                    $Result.length -lt $ShortestCombo.length) {
+                    $ShortestCombo += $Result
+                }
             }
         }
     }
+    return $ShortestCombo
 }
