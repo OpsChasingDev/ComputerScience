@@ -12,7 +12,6 @@
 # if an existing array with a lesser length exists, the new array set is dropped
 # if an existing array with an equal length exists, the new array set is dropped
 
-# change .length to .count for the hash table comparisons
 # error existed in child call where the key for adding to hash table already existed
 <#
 MethodInvocationException: C:\git\ComputerScience\Recursion\bestSum.Memoization.ps1:35:17      
