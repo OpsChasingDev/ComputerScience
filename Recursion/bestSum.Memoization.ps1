@@ -12,23 +12,32 @@
 # if an existing array with a lesser length exists, the new array set is dropped
 # if an existing array with an equal length exists, the new array set is dropped
 
-# make sure returned combo is being passed to the next call in the stack
+# change .length to .count for the hash table comparisons
+# error existed in child call where the key for adding to hash table already existed
+<#
+MethodInvocationException: C:\git\ComputerScience\Recursion\bestSum.Memoization.ps1:35:17      
+Line |
+  35 |                  $Result.Add("$TargetSum", "$c")
+     |                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | Exception calling "Add" with "2" argument(s): "Item has already been added.
+     | Key in dictionary: '7'  Key being added: '7'"
+#>
 function bestSum {
     param (
         [Parameter(Position = 1)]
         [int]$TargetSum,
         [Parameter(Position = 2)]
-        [int[]]$Collection
+        [int[]]$Collection,
+        [Parameter(Position = 3)]
+        $ShortestCombo
     )
 
-    $ShortestCombo = $null
-        
     if ($TargetSum -lt 0) { return $null }
     if ($TargetSum -eq 0) { return @{} }
     if ($TargetSum -gt 0) {
         foreach ($c in $Collection) {
             $Difference = $TargetSum - $c
-            $Result = bestSum $Difference $Collection
+            $Result = bestSum $Difference $Collection $ShortestCombo
             # possible to generate remainder
             if ($Result) {
                 # building array for targetsum
